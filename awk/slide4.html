@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Linux Admin 3: regular expressions 1</title>
+</head>
+<body>
+<ul class="lectureslide">
+<li>grep, awk, sed &amp; perl all use REs</li>
+<li>different from filename wildcards</li>
+<li>matches the pattern anywhere in a line</li>
+<li>group work:  match he out of:  the he she hpe fiend</li>
+<li><table border=1><tr><th>character</th><th>meaning</th></tr> <tr><td>^</td><td>match pattern at beginning of line</td></tr> <tr><td>$</td><td>match preceding pattern at end of line</td></tr> <tr> <td>.</td> <td>match any single character</td></tr><tr><td>*</td><td>match ZERO or more repetitions of previous char</td> </tr></table></li>
+<li>^a will match all lines that begin with a</li>
+<li>fred$ will match all lines that end with 'fred'</li>
+<li>.he will match she, the, che, or any other 3-letter word that has 'he' as the second and 3rd characters.</li>
+<li>t* will match t, tt, tttttttttt, or any number of t's: Including NONE!</li>
+
+<a class="pagelink" href="slide5.html">NEXT</a><br />
+
+<a class="pagelink" href="slide3.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

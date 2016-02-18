@@ -1,0 +1,148 @@
+Feb  3 04:24:50 mail sshd[15649]: refused connect from ::ffff:122.33.255.30 (::ffff:122.33.255.30)
+Feb  3 04:28:25 mail sshd[15653]: refused connect from ::ffff:122.33.255.30 (::ffff:122.33.255.30)
+Feb  3 09:19:58 mail sshd[17428]: refused connect from ::ffff:216.55.165.26 (::ffff:216.55.165.26)
+Feb  3 09:25:03 mail sshd[17452]: refused connect from ::ffff:216.55.165.26 (::ffff:216.55.165.26)
+Feb  3 17:41:44 mail sshd[20493]: refused connect from ::ffff:222.192.176.2 (::ffff:222.192.176.2)
+Feb  3 19:45:47 mail sshd[20991]: refused connect from ::ffff:222.69.93.27 (::ffff:222.69.93.27)
+Feb  3 19:47:24 mail sshd[20995]: refused connect from ::ffff:222.69.93.27 (::ffff:222.69.93.27)
+Feb  4 06:34:09 mail sshd[29703]: refused connect from ::ffff:58.242.42.214 (::ffff:58.242.42.214)
+Feb  4 06:40:22 mail sshd[29740]: refused connect from ::ffff:87.28.70.137 (::ffff:87.28.70.137)
+Feb  4 06:42:26 mail sshd[29753]: refused connect from ::ffff:87.28.70.137 (::ffff:87.28.70.137)
+Feb  4 07:59:17 mail sshd[30766]: refused connect from ::ffff:200.25.188.42 (::ffff:200.25.188.42)
+Feb  4 08:04:35 mail sshd[30869]: refused connect from ::ffff:200.25.188.42 (::ffff:200.25.188.42)
+Feb  4 08:18:16 mail sshd[30971]: Accepted publickey for jeremy from 192.168.1.5 port 1317 ssh2
+Feb  4 08:20:10 mail sshd[31069]: Accepted publickey for jeremy from 192.168.1.181 port 32769 ssh2
+Feb  4 08:44:26 mail sshd[31201]: refused connect from ::ffff:61.181.240.247 (::ffff:61.181.240.247)
+Feb  4 10:13:15 mail sshd[32164]: Accepted publickey for jeremy from 192.168.1.5 port 2233 ssh2
+Feb  4 10:47:52 mail sshd[32355]: Accepted publickey for jeremy from 192.168.1.5 port 2610 ssh2
+Feb  4 16:06:31 mail sshd[2004]: Accepted password for jeremy from 192.168.1.5 port 1068 ssh2
+Feb  4 21:35:04 mail sshd[3232]: Authentication refused: bad ownership or modes for file /home/waller/.ssh/authorized_keys
+Feb  4 21:35:06 mail sshd[3232]: Accepted password for waller from 74.41.174.10 port 44361 ssh2
+Feb  5 08:04:33 mail sshd[10703]: Did not receive identification string from 200.114.6.122
+Feb  5 08:09:46 mail sshd[10723]: Invalid user staff from 200.114.6.122
+Feb  5 08:09:46 mail sshd[10723]: error: Could not get shadow information for NOUSER
+Feb  5 08:09:46 mail sshd[10723]: Failed password for invalid user staff from 200.114.6.122 port 53360 ssh2
+Feb  5 08:09:48 mail sshd[10725]: Invalid user sales from 200.114.6.122
+Feb  5 08:09:48 mail sshd[10725]: error: Could not get shadow information for NOUSER
+Feb  5 08:09:48 mail sshd[10725]: Failed password for invalid user sales from 200.114.6.122 port 53841 ssh2
+Feb  5 08:09:49 mail sshd[10727]: Invalid user recruit from 200.114.6.122
+Feb  5 08:09:49 mail sshd[10727]: error: Could not get shadow information for NOUSER
+Feb  5 08:09:49 mail sshd[10727]: Failed password for invalid user recruit from 200.114.6.122 port 53876 ssh2
+Feb  5 08:09:51 mail sshd[10729]: Invalid user alias from 200.114.6.122
+Feb  5 08:09:51 mail sshd[10729]: error: Could not get shadow information for NOUSER
+Feb  5 08:09:51 mail sshd[10729]: Failed password for invalid user alias from 200.114.6.122 port 53932 ssh2
+Feb  5 08:09:52 mail sshd[10731]: Invalid user office from 200.114.6.122
+Feb  5 08:09:52 mail sshd[10731]: error: Could not get shadow information for NOUSER
+Feb  5 08:09:52 mail sshd[10731]: Failed password for invalid user office from 200.114.6.122 port 54377 ssh2
+Feb  5 08:09:53 mail sshd[10733]: Invalid user samba from 200.114.6.122
+Feb  5 08:09:53 mail sshd[10733]: error: Could not get shadow information for NOUSER
+Feb  5 08:09:53 mail sshd[10733]: Failed password for invalid user samba from 200.114.6.122 port 54410 ssh2
+Feb  5 08:09:55 mail sshd[10735]: Invalid user tomcat from 200.114.6.122
+Feb  5 08:09:55 mail sshd[10735]: error: Could not get shadow information for NOUSER
+Feb  5 08:09:55 mail sshd[10735]: Failed password for invalid user tomcat from 200.114.6.122 port 54467 ssh2
+Feb  5 08:09:56 mail sshd[10737]: Invalid user webadmin from 200.114.6.122
+Feb  5 08:09:56 mail sshd[10737]: error: Could not get shadow information for NOUSER
+Feb  5 08:09:56 mail sshd[10737]: Failed password for invalid user webadmin from 200.114.6.122 port 54503 ssh2
+Feb  5 08:09:58 mail sshd[10739]: Invalid user spam from 200.114.6.122
+Feb  5 08:09:58 mail sshd[10739]: error: Could not get shadow information for NOUSER
+Feb  5 08:09:58 mail sshd[10739]: Failed password for invalid user spam from 200.114.6.122 port 54952 ssh2
+Feb  5 08:09:58 mail sshd[10744]: refused connect from ::ffff:200.114.6.122 (::ffff:200.114.6.122)
+Feb  5 10:39:03 mail sshd[11841]: refused connect from ::ffff:213.42.26.227 (::ffff:213.42.26.227)
+Feb  5 10:41:21 mail sshd[11848]: refused connect from ::ffff:213.42.26.227 (::ffff:213.42.26.227)
+Feb  5 11:30:26 mail sshd[12215]: refused connect from ::ffff:194.97.106.195 (::ffff:194.97.106.195)
+Feb  5 11:35:31 mail sshd[12227]: refused connect from ::ffff:194.97.106.195 (::ffff:194.97.106.195)
+Feb  5 11:40:10 mail sshd[12234]: refused connect from ::ffff:146.164.26.66 (::ffff:146.164.26.66)
+Feb  5 11:45:11 mail sshd[12239]: refused connect from ::ffff:146.164.26.66 (::ffff:146.164.26.66)
+Feb  5 14:06:25 mail sshd[13144]: Accepted publickey for jeremy from 134.29.248.148 port 35493 ssh2
+Feb  5 14:44:24 mail sshd[13325]: Accepted publickey for jeremy from 134.29.248.148 port 58775 ssh2
+Feb  5 15:47:21 mail sshd[13793]: Did not receive identification string from 58.1.243.28
+Feb  5 15:49:26 mail sshd[13794]: Failed password for root from 58.1.243.28 port 44057 ssh2
+Feb  5 16:10:06 mail sshd[13930]: Accepted publickey for mschwarz from 64.122.229.18 port 23597 ssh2
+Feb  5 16:10:16 mail sshd[13942]: Accepted publickey for mschwarz from 64.122.229.18 port 23612 ssh2
+Feb  5 17:25:33 mail sshd[14149]: refused connect from ::ffff:89.32.94.237 (::ffff:89.32.94.237)
+Feb  5 18:12:59 mail sshd[14285]: Failed password for jeremy from 192.168.1.5 port 1163 ssh2
+Feb  5 18:13:00 mail sshd[14285]: Accepted password for jeremy from 192.168.1.5 port 1163 ssh2
+Feb  5 18:25:42 mail sshd[14403]: Accepted publickey for jeremy from 192.168.1.5 port 1255 ssh2
+Feb  5 18:25:47 mail sshd[14476]: Accepted publickey for jeremy from 192.168.1.5 port 1260 ssh2
+Feb  5 19:27:32 mail sshd[14699]: Accepted publickey for jeremy from 192.168.1.5 port 1864 ssh2
+Feb  5 19:31:34 mail sshd[14776]: Accepted publickey for jeremy from 192.168.1.5 port 1892 ssh2
+Feb  5 19:32:19 mail sshd[14800]: Accepted publickey for jeremy from 192.168.1.5 port 1898 ssh2
+Feb  5 21:08:11 mail sshd[15220]: Accepted publickey for jeremy from 192.168.1.181 port 32776 ssh2
+Feb  5 21:08:29 mail sshd[15238]: Accepted publickey for jeremy from 207.47.25.98 port 62845 ssh2
+Feb  5 22:11:36 mail sshd[15510]: Did not receive identification string from 189.21.198.99
+Feb  5 22:15:08 mail sshd[15514]: Failed password for root from 189.21.198.99 port 45980 ssh2
+Feb  5 22:15:08 mail sshd[15514]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:09 mail sshd[15516]: Failed password for root from 189.21.198.99 port 46058 ssh2
+Feb  5 22:15:10 mail sshd[15516]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:13 mail sshd[15518]: Invalid user apple from 189.21.198.99
+Feb  5 22:15:14 mail sshd[15518]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:14 mail sshd[15518]: error: Could not get shadow information for NOUSER
+Feb  5 22:15:14 mail sshd[15518]: Failed password for invalid user apple from 189.21.198.99 port 46107 ssh2
+Feb  5 22:15:16 mail sshd[15520]: Failed password for root from 189.21.198.99 port 46835 ssh2
+Feb  5 22:15:16 mail sshd[15520]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:19 mail sshd[15522]: Invalid user brian from 189.21.198.99
+Feb  5 22:15:19 mail sshd[15522]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:19 mail sshd[15522]: error: Could not get shadow information for NOUSER
+Feb  5 22:15:19 mail sshd[15522]: Failed password for invalid user brian from 189.21.198.99 port 46893 ssh2
+Feb  5 22:15:22 mail sshd[15524]: Failed password for root from 189.21.198.99 port 47552 ssh2
+Feb  5 22:15:22 mail sshd[15524]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:28 mail sshd[15529]: Invalid user andrew from 189.21.198.99
+Feb  5 22:15:28 mail sshd[15529]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:28 mail sshd[15529]: error: Could not get shadow information for NOUSER
+Feb  5 22:15:28 mail sshd[15529]: Failed password for invalid user andrew from 189.21.198.99 port 47622 ssh2
+Feb  5 22:15:30 mail sshd[15531]: Failed password for root from 189.21.198.99 port 48970 ssh2
+Feb  5 22:15:30 mail sshd[15531]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:33 mail sshd[15533]: Invalid user newsroom from 189.21.198.99
+Feb  5 22:15:33 mail sshd[15533]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:33 mail sshd[15533]: error: Could not get shadow information for NOUSER
+Feb  5 22:15:33 mail sshd[15533]: Failed password for invalid user newsroom from 189.21.198.99 port 49033 ssh2
+Feb  5 22:15:35 mail sshd[15535]: Failed password for root from 189.21.198.99 port 49692 ssh2
+Feb  5 22:15:35 mail sshd[15535]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:39 mail sshd[15537]: Invalid user magazine from 189.21.198.99
+Feb  5 22:15:39 mail sshd[15537]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:39 mail sshd[15537]: error: Could not get shadow information for NOUSER
+Feb  5 22:15:39 mail sshd[15537]: Failed password for invalid user magazine from 189.21.198.99 port 49743 ssh2
+Feb  5 22:15:43 mail sshd[15539]: Failed password for root from 189.21.198.99 port 50432 ssh2
+Feb  5 22:15:43 mail sshd[15539]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:46 mail sshd[15541]: Invalid user research from 189.21.198.99
+Feb  5 22:15:46 mail sshd[15541]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:46 mail sshd[15541]: error: Could not get shadow information for NOUSER
+Feb  5 22:15:46 mail sshd[15541]: Failed password for invalid user research from 189.21.198.99 port 51095 ssh2
+Feb  5 22:15:48 mail sshd[15543]: Failed password for root from 189.21.198.99 port 51182 ssh2
+Feb  5 22:15:48 mail sshd[15543]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:50 mail sshd[15545]: Invalid user cjohnson from 189.21.198.99
+Feb  5 22:15:50 mail sshd[15545]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:50 mail sshd[15545]: error: Could not get shadow information for NOUSER
+Feb  5 22:15:50 mail sshd[15545]: Failed password for invalid user cjohnson from 189.21.198.99 port 51817 ssh2
+Feb  5 22:15:52 mail sshd[15547]: Failed password for root from 189.21.198.99 port 51875 ssh2
+Feb  5 22:15:52 mail sshd[15547]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:54 mail sshd[15549]: Invalid user export from 189.21.198.99
+Feb  5 22:15:54 mail sshd[15549]: reverse mapping checking getaddrinfo for 189-21-198-99.ded.intelignet.com.br failed - POSSIBLE BREAK-IN ATTEMPT!
+Feb  5 22:15:54 mail sshd[15549]: error: Could not get shadow information for NOUSER
+Feb  5 22:15:54 mail sshd[15549]: Failed password for invalid user export from 189.21.198.99 port 52483 ssh2
+Feb  5 22:15:55 mail sshd[15554]: refused connect from ::ffff:189.21.198.99 (::ffff:189.21.198.99)
+Feb  6 09:36:01 mail sshd[23171]: Accepted password for jeremy from 192.168.1.3 port 33071 ssh2
+Feb  6 12:21:42 mail sshd[25224]: Accepted password for jeremy from 134.29.252.56 port 39661 ssh2
+Feb  6 12:21:48 mail sshd[25242]: Accepted password for jeremy from 134.29.252.56 port 39662 ssh2
+Feb  6 12:22:12 mail sshd[25318]: Accepted publickey for jeremy from 134.29.252.56 port 39663 ssh2
+Feb  6 12:27:22 mail sshd[25402]: Accepted publickey for jeremy from 134.29.253.201 port 62618 ssh2
+Feb  6 14:25:44 mail sshd[25741]: Accepted publickey for jeremy from 134.29.252.56 port 33125 ssh2
+Feb  6 14:26:49 mail sshd[25813]: refused connect from ::ffff:200.111.37.234 (::ffff:200.111.37.234)
+Feb  6 14:31:48 mail sshd[25824]: refused connect from ::ffff:200.111.37.234 (::ffff:200.111.37.234)
+Feb  6 16:50:49 mail sshd[26174]: Accepted publickey for jeremy from 134.29.252.56 port 48497 ssh2
+Feb  6 16:55:15 mail sshd[26283]: Accepted publickey for jeremy from 134.29.252.56 port 52619 ssh2
+Feb  6 17:17:26 mail sshd[26453]: Accepted publickey for jeremy from 134.29.252.56 port 57799 ssh2
+Feb  6 17:17:29 mail sshd[26472]: Accepted publickey for jeremy from 134.29.252.56 port 57800 ssh2
+Feb  6 19:49:47 mail sshd[26809]: Accepted publickey for jeremy from 134.29.252.56 port 36758 ssh2
+Feb  6 20:29:49 mail sshd[27135]: refused connect from ::ffff:72.21.7.110 (::ffff:72.21.7.110)
+Feb  6 20:31:49 mail sshd[27154]: refused connect from ::ffff:72.21.7.110 (::ffff:72.21.7.110)
+Feb  6 22:14:12 mail sshd[27702]: refused connect from ::ffff:76.8.194.162 (::ffff:76.8.194.162)
+Feb  6 22:19:15 mail sshd[27704]: refused connect from ::ffff:76.8.194.162 (::ffff:76.8.194.162)
+Feb  7 00:25:32 mail sshd[28438]: refused connect from ::ffff:221.232.132.40 (::ffff:221.232.132.40)
+Feb  7 00:27:32 mail sshd[28439]: refused connect from ::ffff:221.232.132.40 (::ffff:221.232.132.40)
+Feb  7 00:40:47 mail sshd[28448]: refused connect from ::ffff:222.192.176.2 (::ffff:222.192.176.2)
+Feb  7 08:33:14 mail sshd[2457]: Accepted publickey for jeremy from 192.168.1.5 port 1397 ssh2
+Feb  7 08:44:26 mail sshd[2567]: Accepted publickey for jeremy from 192.168.1.5 port 1526 ssh2
+Feb  7 12:03:41 mail sshd[4415]: Authentication refused: bad ownership or modes for file /home/waller/.ssh/authorized_keys
+Feb  7 12:03:42 mail sshd[4415]: Accepted password for waller from 74.41.174.10 port 39786 ssh2
+Feb  7 15:37:49 mail sshd[5032]: Accepted publickey for jeremy from 192.168.1.5 port 3684 ssh2

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>CCIS 2161, Linux Administration 3:  Awk lab, Mk II</title>
+</head>
+<body>
+<h2><p>Lab Assignment</p>
+</h2>
+<p>25 points total.  You can get tonight's datafile from <a href='http://ccis2161.linux-classes.com/awk-mk2/secure'>http://ccis2161.linux-classes.com/awk-mk2/secure</a></p>
+<ol class=worksheet><li>Write an awk script which will display just names and comments (GECOS) from /etc/passwd</li>
+<li>Write an awk script to display only groupnames from /etc/group</li>
+<li>Write an awk script to show only filenames and sizes from the output of ls -al</li>
+<li>Write an awk script to display only the filename and number of hardlinks (in that order) from the output of an ls -al</li>
+<li>Write an awk script to display the only the username of any users which have /sbin/nologin as their shell</li>
+<li>Use awk to display only lines which contain "refused connect" from the provided 'secure' logfile</li>
+<li>Alter the above command to show only Month, date, time, and one instance of the IP address that attempted to connect</li>
+<li>Using a pipe, and sed, take the result of the last command, and delete all instances of '::ffff:'</li>
+<li>Use awk to show only a list of invalid users from the datafile</li>
+<li>Use awk to produce a list of usernames which successfully authenticated with publickey or password</li>
+<li>Now, take the previous question, and pipe the results to uniq, such that duplicates are removed</li>
+<li>Using nothing but awk, show only the first ten lines of /etc/passwd</li>
+<li>Using nothing but awk, show the seventh, eighth and ninth lines of the /etc/passwd file</li>
+<li>Using awk, show all lines from /etc/passwd which have a UID with a value less than 50</li>
+<li>Alter the previous question so that only usernames are displayed.</li>
+</ol>
+</body>
+</html>

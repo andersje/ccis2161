@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)http://www.math.fu-berlin.de/~leitner/sed/tutorial.html -->
+<HTML><HEAD><TITLE>sed</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 5.50.4207.2601" name=GENERATOR></HEAD>
+<BODY>
+<H1><A name=sed_name_0>NAME</A> </H1>sed-tutorial - a small tutorial about sed 
+<P>
+<P>
+<HR>
+
+<H1><A name=sed_description_0>DESCRIPTION</A> </H1>sed(1) is a non-interactive 
+text editor that comes with UNIX since Version 7 AT&amp;T UNIX. It's main 
+purpose is to be used in scripts. 
+<P>
+<P>
+<HR>
+
+<H1><A name=sed_simple_0>SIMPLE TEXT EDITING</A> </H1>sed(1) works as a filter, 
+which makes it particularly useful for scripts. sed(1) works line oriented. The 
+most simple commands are a pattern and an action. If no pattern is given, the 
+action is applied to all lines, otherwise it is applied only to lines matching 
+the pattern. 
+<P>
+<H2><A name=sed_line_oriented_0>Line-oriented Patterns</A> </H2>A sample 
+application of sed(1) would be to delete the first 10 lines of stdin and echo 
+the rest to stdout: 
+<P><XMP>  sed -e '1,10d'
+
+</XMP>
+<P>The <CODE>-e</CODE> tells sed to <STRONG>execute</STRONG> the next command 
+line argument as sed program. Since sed programs often contain regular 
+expressions, they will often contain characters that your shell interprets, so 
+you should get used to put all sed programs in single quotes so your shell won't 
+interpret the sed program. In this case, nothing bad would have happened, but 
+since almost all other examples will contain meta-characters, you really should 
+get used to quoting your programs. This simple sed program contains a pattern 
+(``1,10'') and an action (``d''). What sed(1) does is apply all actions whose 
+pattern match and finally print the line unless the action was ``d''. If you 
+don't want sed(1) to print each line by default, you can give sed the 
+<CODE>-n</CODE> option. Then only lines that you print explicitly (with the 
+``p'' action) appear on stdout. 
+<P>If we wanted to print only the first ten lines, we would have deleted all the 
+lines starting with 11: 
+<P><XMP>  sed -e '11,$d'
+
+</XMP>
+<P>Note that <CODE>$</CODE> is the last line. Because sed(1) processes the input 
+line by line, it does not keep the whole input in memory. This makes sed(1) very 
+useful for processing large files, but it has it's drawbacks, too. For example, 
+we can't use <CODE>sed -e '<STRONG>$-</STRONG>10,<STRONG>$d</STRONG>'</CODE>, 
+since sed doesn't know <CODE>$</CODE> before the end of file, so it doesn't know 
+where <CODE><STRONG>$-</STRONG>10</CODE> is. This is a major problem, and it 
+limits sed(1)'s usefulness, but sed(1) still has a large number of appliances. 
+<P>Another way to get only the first 10 lines is to use the <CODE>-n</CODE> 
+option: 
+<P><XMP>  sed -n -e '1,10p'
+
+</XMP>
+<P>If we want to delete only one line, the pattern can be <CODE>'10,10'</CODE> 
+or simple <CODE>'10'</CODE>. 
+<P>
+<H2><A name=sed_more_0>More Than One Command</A> </H2>Commands in sed(1) 
+programs are separated by new lines. So if we wanted to delete the lines 1 to 4 
+and 6 to 9, we could use: 
+<P><XMP>  sed -e '1,4d
+6,9d'
+
+</XMP>
+<P>Another possibility is to use the <CODE>-e</CODE> option more than once: 
+<P><XMP>  sed -e '1,4d' -e '6,9d'
+
+</XMP>
+<P>That's why we used the <CODE>-e</CODE> option all the time. In fact, you can 
+omit it if you have only one command in your program. But you should get used to 
+the <CODE>-e</CODE> option, so you won't have to add it if you want to extend 
+your program later on. 
+<P>
+<H2><A name=sed_regular_0>Regular Expression Oriented Patterns</A> </H2>Often, 
+we don't know the numbers of the lines we want to delete. A good example is a 
+log file. Log files tend to grow until they become too large to handle. Let's 
+assume that you have a large log file called <CODE>log</CODE> which contains 
+thousands of lines. Now you want to delete all the lines that contain the word 
+``debug'': 
+<P><XMP>  sed -e '/debug/d' < log
+
+</XMP>
+<P>This works just like <CODE>grep -v debug</CODE>. 
+<P>
+<H2><A name=sed_a_0>A Slightly More Complex Example</A> </H2>We are still 
+working with the large log file. Now we not only want to delete lines with the 
+word debug, but we only want lines that contain ``foo''. The traditional way to 
+handle this would be: 
+<P><XMP>  grep 'foo' < log | grep -v debug
+
+</XMP>
+<P>Note that this spawns two grep processes. The sed equivalent would be: 
+<P><XMP>  sed -n -e '/debug/d' -e '/foo/p'
+
+</XMP>
+<P>You might wonder why lines with debug aren't printed if they contain foo. The 
+answer is that the ``d'' action skips the rest of the patterns and actions, too, 
+it does not just inhibit the print in the end (which is inhibited here due to 
+the <CODE>-n</CODE>, anyway). 
+<P>
+<H2><A name=sed_putting_0>Putting sed Programs Into Files</A> </H2>Now that your 
+programs are getting a little more advanced, you might want to put them in 
+script files instead of using the command line. To tell sed(1) about your 
+program file, you use the <CODE>-f</CODE> option: 
+<P><XMP>  sed -f program.sed
+
+</XMP>
+<P>There is a kludge in sed(1) that allows you to set the <CODE>-n</CODE> option 
+from within your sed program if you use ``#n'' as the <STRONG>first</STRONG> 
+line in your program file. From now on I will assume that you run the examples 
+through <CODE>sed -f</CODE>. 
+<P>
+<H2><A name=sed_inserting_0>Inserting Text</A> </H2>You can insert text with the 
+``a'' and ``i'' actions. The syntax is: 
+<P><XMP>  10i\
+  string to be inserted
+
+</XMP>
+<P>The difference between ``i'' and ``a'' is that ``i'' inserts before the 
+current line and ``a'' appends after the current line. So ``1i'' will insert 
+before the first line and ``<STRONG>$a</STRONG>'' will append after the last 
+line. 
+<P>
+<H2><A name=sed_replacing_0>Replacing the current line</A> </H2>You can replace 
+the current line with the ``c'' action. The syntax is like ``i'' and ``a'': 
+<P><XMP>  10c\
+  new contents for line 10
+
+</XMP>
+<P>
+<H2><A name=sed_printing_0>Printing The Current Line Visually Unambiguously</A> 
+</H2>The ``l'' action is <STRONG>very</STRONG> useful when editing files with 
+nonprintable characters. It prints the current line visually unambiguously. For 
+example, long lines are broken, but the lines end with a \ to show that they 
+were broken. Normal backslashes in the text are escaped, too, tabs are replaced 
+with <CODE>\t</CODE> and nonprintable characters are printed as escaped 
+three-digit octal numbers. This example is quite useful as shell alias: 
+<P><XMP>  sed -n -e 'l'
+
+</XMP>
+<P>
+<H2><A name=sed_aborting_0>Aborting Processing</A> </H2>The ``q'' action 
+branches to the end of the script and ends the script processing after this 
+line. So, yet another way of printing the first 10 lines would have been: 
+<P><XMP>  sed -e '10q'
+
+</XMP>
+<P>
+<P>
+<HR>
+
+<H1><A name=sed_regular_1>REGULAR EXPRESSION SUBSTITUTION</A> </H1>The 
+``s/<EM>pattern</EM>/<EM>replacement</EM>/[flags]'' action is the most often 
+used sed(1) action. In fact, most sed programs consist only of substitute 
+commands, since this is so immensely useful. The regular expression 
+<EM>pattern</EM> is substituted by the replacement string (which can contain 
+several special symbols). The most basic substitution would be 
+<P><XMP>  sed -e 's/foo/bar/'
+
+</XMP>
+<P>which would just change the string ``foo'' to ``bar''. 
+<P>
+<P>
+<HR>
+
+<H1><A name=sed_see_0>SEE ALSO</A> </H1>sed(1), awk(1), mawk(1), nawk(1), 
+gawk(1) 
+<P></P></BODY></HTML>

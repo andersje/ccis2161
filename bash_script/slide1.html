@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Linux Admin 3: for loops</title>
+</head>
+<body>
+<ul class="lectureslide">
+<li><b>for</b>:  iterate through arbitrary lists</li>
+<pre>
+for user in betty fred wilma; do
+	useradd $user
+	echo $user | passwd --stdin $user
+	echo "I added $user with password of $user"
+done
+</pre>
+		add_list_item("More powerful when mixed with commands:");
+?>
+<pre>
+for address in $(/usr/bin/who | awk -F\( '{print $2}' | sed -e 's/)//'); do 
+	echo "someone is logged in from $address"
+done
+</pre>
+<li>put any valid command you desire in the $( ) space</li>
+
+<a class="pagelink" href="slide2.html">NEXT</a><br />
+
+<a class="pagelink" href="index.html">INDEX</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

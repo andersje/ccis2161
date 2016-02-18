@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>CCIS 2161, Linux Administration 3:  BASH scripting, lab 1</title>
+</head>
+<body>
+<h2><p>Lab Assignment</p>
+</h2>
+<h5>Be sure to include your name and the name of this lab when it is submitted, via email, to the instructor's email address.  Acceptable formats are text files, html files and pdf's.  Do not send MS Word or OpenOffice.org documents.</h5><h5>Total assignment value:  25 points</h5>
+<ol>
+<li>(5 points) build a shell script which will pull out all the IP addresses from all lines which contain the words 'Invalid user' from the file linked after this question.  It should then run nmap -O against each of them, appending the output of that command into a file named 'dummy_nmapscan.txt'.</li>
+<a href="http://ccis2161.linux-classes.com/sample_files/messages">sample messages file (from http://ccis2161.linux-classes.com/sample_files/messages)</a>
+<li>(2 points) now enhance your script so that it removes all duplicates and sorts them numerically.</li>
+<li>(5 points) Further enhance the above script so that it removes any of the IP addresses stored in a file named /etc/firewall/whitelist.</li>
+<a href="http://ccis2161.linux-classes.com/sample_files/whitelist">sample data file for previous question (from http://ccis2161.linux-classes.com/sample_files/whitelist)</a>
+<li>(3 points) enhance your script to automatically block each IP using the following IP tables command: <span class='unix'>/sbin/iptables -I INPUT -i eth1 -s IP_ADDRESS -d 0.0.0.0/0 -j DROP</span></li>
+<li>(10 points) Write a shell script which presents the user with a menu which allows them the following options:  <ol> <li>check load average</li><li> display all blocked IP addresses (from the previous questions)</li> <li>display all whitelisted IP addresses</li> <li>rescan logfiles and re-run the blocking script you wrote above</li> <li>logout</li></ol>You can assume the user which runs it already has sudo permission to perform all of these tasks.</li>
+<h3>Extra Credit</h3><li>(3 points) Write a shell script which asks for a username.  Once the user enters a valid username, have it track down and terminate all processes owned by that user.  Ensure that the script will not accept 'root' as an argument, and that it will check to ensure that the user entered really does exist on the system (check out the 'id' command for an easy way to do that.</li>
+<li>(2 points)  Keep a count of how many IP addresses have been blocked by your script above, and display only the total at the end of script execution</li>
+</ol>
+
+</body>
+</html>

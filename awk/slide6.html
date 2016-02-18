@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Linux Admin 3: regular expressions 1</title>
+</head>
+<body>
+<ul class="lectureslide">
+<h2>
+<pre>
+perfect
+prefect
+steve
+carp
+alligator
+stick
+</pre>
+Which will be matched by:<br>
+[pr]$<br>
+<!-- alligator, carp - a 'p' or an 'r' as the last character on the line /-->
+ec<br>
+<!-- perfect, prefect - a lowercase 'e', next to a lowercase 'c' anywhere in the line/-->
+e[vc]<br>
+<!-- perfect, prefect, steve - a lowercase 'e', immediately followed by either a lowercase 'v' or 'c', anywhere on the line/-->
+^[cp]<br>
+<!-- perfect, prefect, carp - any line which starts with a lowercase 'c' or lowercase 'p' /-->
+^[^cp]<br>
+<!-- alligator, steve, stick - any line which does NOT start with a lowercase 'c' or 'p' /-->
+</h2>
+(by the way, use the 'view source' option to see the answers!)
+
+<a class="pagelink" href="index.html">INDEX</a><br />
+
+<a class="pagelink" href="slide5.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

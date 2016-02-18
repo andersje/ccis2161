@@ -1,0 +1,16 @@
+#!/bin/bash
+echo -e " \033[44;1;31m red on 44 "
+echo -e " \033[45;1;31m red on 45 "
+echo -e " \033[46;1;31m red on 46 "
+echo -e " \033[47;1;31m red on 47 "
+echo -e " \033[48;1;31m red on 48 "
+echo -e " \033[49;1;31m red on 49"
+echo -e " \033[50;1;31m red on 50"
+echo -e " \033[51;1;31m red on 51"
+echo -e " \033[52;1;31m red on 52"
+echo "time to go back to black on white"
+echo -e " \033[49;0;30m black on white (0;30 on 49)"
+echo ""
+echo -e "now, just \033[31m red \033[30m text"
+echo -e "now, just \033[7;31m inverse red \033[0;30m text"
+

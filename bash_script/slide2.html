@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Linux Admin 3: logical constructs</title>
+</head>
+<body>
+<ul class="lectureslide">
+<li><b>if-then</b>:  if-then allows you to make decisions</li>
+<pre>
+if [ $USER == "jeremy" ]; then
+echo "Hi Jeremy"
+fi
+</pre>
+<li>string tests:  ==</li>
+<li>math tests:  -eq -lt -gt -le -ge</li>
+<li>[ ] is a simple test</li>
+<li>[[ ]]   is the extended test:</li>
+<pre>
+HOSTNAME=$(/bin/hostname)
+if [[ $USER == "jeremy" && $HOSTNAME == "wittgenstein" ]]; then
+	echo "warning, jeremy, you are working on production host wittgenstein"
+	echo "please be careful with sudo on this box"
+fi
+</pre>
+<li>note the fi</li>
+<li>if - then - elif - fi</li>
+
+<a class="pagelink" href="slide3.html">NEXT</a><br />
+
+<a class="pagelink" href="slide1.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

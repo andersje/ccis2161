@@ -1,0 +1,49 @@
+
+<html>
+		  <head>
+			  <title>Awk lab for Linux 3</title>
+		  </head>
+		  <body>
+					 <h3>Name:</h3>
+					 <h3>Period:</h3>
+					 <p>25 points total.</p>
+					 <ol>
+						 <li>(1 point) Write an awk script which will display just names and UIDs from /etc/passwd<br><p></li>
+						 <li>(2 points) Alter the above so that only users which are using the Bourne-Again Shell are displayed.  Do not use grep.<br><p></li>
+						 <li>(2 points) Write an awk script which will read all lines in the /etc/passwd file, and produce a report which looks like this:<pre>
+USER REPORT
+
+USER    UID
+
+root    0
+xfs     87
+apache  38
+
+</pre></li>
+						 <li>(3 points) Modify your previous script to include valid XHTML headers (which can be cobbled from last week's lab), and to build a table which holds the above data.  Remember, tables have a format like this:<pre>
+&lt; table &gt;
+    &lt; tr &gt;
+       &lt; td &gt; 
+       &lt; td &gt;
+    &lt; /tr &gt;
+&lt; table &gt;
+</pre>
+All table data must appear between the table open and table close tags.  tr indicates the beginning of a horizontal row, and td is table data--which is to say, a cell of data.</li>
+
+						<li>(2 points) Modify the script to include a line which shows the total number of user accounts on the system</li>
+						<li>(2 points) Modify the script to include a line which shows the total number of accounts which use /bin/sh as their shell, and the total number of accounts which use /bin/bash as their shell.</li>
+						<li>(2 points) Modify the script from number 2 to display only accounts which have home directories in /home<br><p></li>
+						<li>(2 points) Use awk to print out the first field of every line in /etc/passwd which has a UID of 0 or a GID of 0.<br><p></li>
+						<li>(3 points) Use awk to pull out only the IP addresses from all lines which contain the phrase "Invalid User" in the file at <a href="http://ccis2161.linux-classes.com/sample_files/messages">http://ccis2161.linux-classes.com/linux3/sample_files/messages</a>.<br><p></li>
+						<li>(2 points) Modify the previous script to build an HTML page with an unordered list (&lt;ul&gt;) of all offending IP addresses.<br><p></li>
+						<li>(2 points) Modify the answer from the previous question to exclude all addresses from the 192.168.1 range<br><p></li>
+						<li>(2 points) Use awk to build another HTML report, but this time build an unordered list of all the invalid user names which were attempted.<br><p></li>
+					 </ol>
+					 EXTRA CREDIT
+					 <ol>
+						 <li>(3 points)Write an awk command which will sum the UIDS from lines 15-30 of /etc/passwd, and display a running total:<br><p></li>
+
+					 </ol>
+		  </body>
+
+</html>

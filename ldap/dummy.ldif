@@ -1,0 +1,15 @@
+dn: uid=dummy,ou=People,dc=linuxclass,dc=com
+uid: dummy
+cn: Dummy User
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+userPassword: {SSHA}XHpKJYOSw4J4gUqJJzD5cCjwz2ShuZHv
+shadowLastChange: 13832
+loginShell: /bin/bash
+uidNumber: 551
+gidNumber: 550
+homeDirectory: /home/dummy
+gecos: testuser
+

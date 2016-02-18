@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Linux Admin 3: sed alterations</title>
+</head>
+<body>
+<ul class="lectureslide">
+<li>Replace a line with specific text:<br /> <span class='unix'>ls -al | sed -e '/swp$/c\TEMPORARY FILE'</span></li>
+<li>only want to change a few words?</li>
+<li>replace first occurance on any line:<br /> <span class='unix'>ls -al | sed -e 's/old/new'</span></li>
+<li>replace all occurances on any line: <br /> <span class='unix'>ls -al | sed -e 's/old/new/g'</span></li>
+<li>combine with search!</li>
+<li><span class='unix'>ls -al | sed -e'/html$/s/rw-r--r--/644/'</span></li>
+
+<a class="pagelink" href="slide4.html">NEXT</a><br />
+
+<a class="pagelink" href="slide2.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

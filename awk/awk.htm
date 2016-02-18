@@ -1,0 +1,600 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045) -->
+<HTML><HEAD><TITLE>Getting Started with awk</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 5.50.4207.2601" name=GENERATOR></HEAD>
+<BODY vLink=#d6ad6b aLink=#d6ad6b link=#5a3984 bgColor=#ffffff>
+<CENTER><A href="http://www.hmc.edu/"><IMG alt="HMC Homepage" 
+src="Getting Started with awk_files/whhmc2.gif" border=0></A> <IMG alt=" " 
+src="Getting Started with awk_files/mon_clearpixel.gif"> <IMG alt=" " 
+src="Getting Started with awk_files/mon_clearpixel.gif"> <IMG alt=" " 
+src="Getting Started with awk_files/mon_clearpixel.gif"> <IMG alt=" " 
+src="Getting Started with awk_files/mon_clearpixel.gif"> <IMG alt=" " 
+src="Getting Started with awk_files/mon_clearpixel.gif"> <A 
+href="http://www.cs.hmc.edu/"><IMG alt="CS Home" 
+src="Getting Started with awk_files/whcs2.gif" border=0></A> </CENTER>
+<TABLE width=650 align=center>
+  <TBODY>
+  <TR>
+    <TD><BR>
+      <P>
+      <H2 align=center>Getting started with awk</H2>
+      <P>This qref is written for a semi-knowledgable UNIX user who has just 
+      come up against a problem and has been advised to use <I>awk</I> to solve 
+      it. Perhaps one of the examples can be quickly modified for immediate use. 
+
+      <P>
+      <HR>
+      <A name=menu></A>
+      <UL>
+        <LI><B>Pre-Info</B> 
+        <UL>
+          <LI><A 
+          href="#flavor">Ohhh ohh 
+          what flavor?</A> 
+          <LI><A href="#info">For 
+          More Info</A> 
+          <LI><A 
+          href="#refs">References</A> 
+          </LI></UL>
+        <LI><A 
+        href="#intro">Introduction</A> 
+
+        <LI><A href="#basics">The 
+        Basics</A> 
+        <LI><A href="#samples">Some 
+        Samples</A> 
+        <UL>
+          <LI><A 
+          href="#patact">Whats a 
+          pattern, whats an action?</A> 
+          <LI><A 
+          href="#regexp">With a 
+          regular expression?</A> 
+          <LI><A 
+          href="#patact">Comparisons</A> 
+
+          <LI><A 
+          href="#negop">Negate 
+          Operator</A> 
+          <LI><A 
+          href="#bool">Booleans</A> 
+
+          <LI><A 
+          href="#startend">start 
+          and end</A> 
+          <LI><A 
+          href="#begend">BEGIN and 
+          END</A> 
+          <LI><A 
+          href="#mult">Multiple 
+          pattern action pairs</A> 
+          <LI><A 
+          href="#awkvars">Awk 
+          variables</A> 
+          <LI><A href="#awkfwd">Awk 
+          for while do</A> 
+          <LI><A href="#awkarr">Awk 
+          arrays</A> 
+          <LI><A href="#awkscr">Awk 
+          from a file</A> 
+          <LI><A href="#awkcc">Awk 
+          to create C code</A> </LI></UL>
+        <LI><A href="#punct">Awk 
+        punctuation guide</A> 
+        <LI><A href="#bigexampl">A 
+        large awk example</A> </LI></UL>
+      <HR>
+      <A name=flavor></A>
+      <H2>Ohhh ohh what flavor?</H2>There are three popular versions of awk: 
+      <I>awk</I>, <I>nawk</I>, and <I>gawk</I>. The last two are compatible with 
+      the first one. 
+      <P>
+      <HR>
+      <A name=info></A>
+      <H2>For More Info</H2>If you are looking for a more in-depth online 
+      document about awk, you should read the "info" pages for gawk. The info 
+      pages contain both the official documentation for gawk and and a good 
+      introduction to gawk. To read the info pages, type 
+      <P><B>&gt;</B><SAMP>info gawk</SAMP> 
+      <P>at a shell prompt. It is also possible to print out the info pages in a 
+      nice-looking format. Send email to <I>help@cs.hmc.edu</I> and ask how to 
+      do that. 
+      <P>
+      <HR>
+      <A name=refs></A>
+      <H2>References</H2>A good reference for awk is the O'Reilly handbook for 
+      <I>sed and awk</I>. There should be a copy available in the CS Department 
+      library. Further references are the <I>UNIX in a Nutshell</I> and <I>UNIX 
+      Power Tools</I> books, also in the CS Department library. The <I>Power 
+      Tools</I> book seems to quote quite a bit from the <I>Sed and Awk</I> 
+      book, though. Once you know a bit about awk, the man pages become more 
+      useful. 
+      <P>
+      <H2>The Awk Newsgroup</H2>The newsgroup for awk is <A 
+      href="news:comp.lang.awk">comp.lang.awk</A> 
+      <P><A href="#menu">back to 
+      the top</A>
+      <P>
+      <HR>
+      <A name=intro></A>
+      <H2>Introduction</H2>
+      <UL>
+        <LI><I>awk</I> reads from a file or from its standard input, and outputs 
+        to its standard output. You will generally want to redirect that into a 
+        file, but that is not done in these examples just because it takes up 
+        space. awk does not get along with non-text files, like executables and 
+        FrameMaker files. If you need to edit those, use a binary editor like 
+        hexl-mode in emacs. 
+        <P></P>
+        <LI>The most frustrating thing about trying to learn awk is getting your 
+        program past the shell's parser. The proper way is to use single quotes 
+        around the program, like so: 
+        <P><B>&gt;</B><SAMP>awk '{print $0}' filename</SAMP> 
+        <P>The single quotes protect almost everything from the shell. In csh or 
+        tcsh, you still have to watch out for exclamation marks, but other than 
+        that, you're safe. 
+        <P></P>
+        <LI>The second most frustrating thing about trying to learn <I>awk</I> 
+        is the lovely error messages: <PRE>	awk '{print $0,}' filename
+	awk: syntax error near line 1
+	awk: illegal statement near line 1
+</PRE><I>gawk</I> generally has better error messages. At least it tells 
+        you where in the line something went wrong: <PRE>	gawk '{print $0,}' filename
+	gawk: cmd. line:1: {print $0,}
+	gawk: cmd. line:1:           ^ parse error
+</PRE>So, if you're having problems getting <I>awk</I> syntax correct, 
+        switch to <I>gawk</I> for a while. 
+        <P></P></LI></UL><A 
+      href="#menu">back to the 
+      top</A>
+      <P>
+      <HR>
+      <A name=basics></A>
+      <H2>Some basics:</H2>
+      <P>
+      <UL>
+        <LI>Awk recognizes the concepts of "file", "record", and "field". 
+        <LI>A file consists of records, which by default are the lines of the 
+        file. One line becomes one record. 
+        <LI>Awk operates on one record at a time. 
+        <LI>A record consists of fields, which by default are separated by any 
+        number of spaces or tabs. 
+        <LI>Field number 1 is accessed with $1, field 2 with $2, and so forth. 
+        $0 refers to the whole record. </LI></UL>
+      <P><A href="#menu">back to 
+      the top</A>
+      <P>
+      <HR>
+      <A name=samples></A>
+      <H2>Some Samples</H2>Perhaps the quickest way of learning awk is to look 
+      at some sample programs. The one above will print the file in its 
+      entirety, just like <I>cat</I>(1). Here are some others, along with a 
+      quick description of what they do. 
+      <P><B>&gt;</B><SAMP>awk '{print $2,$1}' filename</SAMP> 
+      <P>will print the second field, then the first. All other fields are 
+      ignored. 
+      <P><B>&gt;</B><SAMP>awk '{print $1,$2,sin($3/$2)}' filename</SAMP> 
+      <P>will print the first and second fields, and then the sine of the third 
+      field divided by the second. So, the second and third field had better be 
+      numbers. Awk has other built in math functions like sine; read the manpage 
+      to see which ones. 
+      <P>"I still say awk '{print $1}' a lot."<BR><CITE>the inventor of PERL, 
+      Larry Wall (lwall@netlabs.com)</CITE> 
+      <P>What if you don't want to apply the program to each line of the file? 
+      Say, for example, that you only wanted to process lines that had the first 
+      field greater than the second. The following program will do that: 
+      <P><B>&gt;</B><SAMP>awk '$1 &gt; $2 {print $1,$2,$1-$2}' filename</SAMP> 
+      <P><A name=patact></A>The part outside the curly braces is called the 
+      "pattern", and the part inside is the "action". The comparison operators 
+      include the ones from C: <PRE>	== != &lt; &gt; &lt;= &gt;= ?:
+</PRE>If no pattern is given, then the action applies to all lines. This 
+      fact was used in the sample programs above. If no action is given, then 
+      the entire line is printed. If "print" is used all by itself, the entire 
+      line is printed. Thus, the following are equivalent: <PRE>	awk '$1 &gt; $2'           filename
+	awk '$1 &gt; $2{print}'    filename
+	awk '$1 &gt; $2{print $0}' filename
+</PRE>The various fields in a line can also be treated as strings instead 
+      of numbers. To compare a field to a string, use the following method: 
+      <P><B>&gt;</B><SAMP>awk '$1=="foo"{print $2}' filename</SAMP> 
+      <P><A href="#menu">back to 
+      the top</A> 
+      <P>
+      <HR>
+      <A name=regexp></A>
+      <H3>Using regular expressions</H3>What if you want lines in which a 
+      certain string is found? Just put a regular expression (in the manner of 
+      <I>egrep</I>(1) ) into the pattern, like so: 
+      <P><B>&gt;</B><SAMP>awk '/foo.*bar/{print $1,$3}' filename</SAMP> 
+      <P>This will print all lines containing the word "foo" and then later the 
+      word "bar". If you want only those lines where "foo" occurs in the second 
+      field, use the ~ ("contains") operator: 
+      <P><B>&gt;</B><SAMP>awk '$2~/foo/{print $3,$1}' filename</SAMP> 
+      <P><A name=negop></A>If you want lines where "foo" does not occur in the 
+      second field, use the negated ~ operator, !~ 
+      <P><B>&gt;</B><SAMP>awk '$2!~/foo/{print $3,$1}' filename</SAMP> 
+      <P>This operator can be read as "does not contain". 
+      <P><A href="#menu">back to 
+      the top</A> 
+      <P>
+      <HR>
+      <A name=bool></A>
+      <H3>Booleans</H3>You can produce complicated patterns with the boolean 
+      operators from C, which are ! for "not", &amp;&amp; for "and", and || for 
+      "or". Parentheses can be used for grouping. 
+      <P><A href="#menu">back to 
+      the top</A> 
+      <P>
+      <HR>
+      <A name=startend></A>
+      <H3>Start and End</H3>There are three special forms of patterns that do 
+      not fit the above descriptions. One is the start-end pair of regular 
+      expressions. For example, to print all lines between and including lines 
+      that contained "foo" and "bar", you would use 
+      <P><B>&gt;</B><SAMP>awk '/foo/,/bar/' filename</SAMP> 
+      <P><A href="#menu">back to 
+      the top</A> 
+      <P>
+      <HR>
+      <A name=begend></A>
+      <H3>Begin and End</H3>The other two special forms are similar; they are 
+      the BEGIN and END patterns. Any action associated with the BEGIN pattern 
+      will happen before any line-by-line processing is done. Actions with the 
+      END pattern will happen after all lines are processed. 
+      <P><A name=mult></A>But how do you put more than one pattern-action pair 
+      into an awk program? There are several choices. 
+      <OL>
+        <LI>One is to just mash them together, like so: 
+        <P><B>&gt;</B><PRE>awk 'BEGIN{print"fee"} $1=="foo"{print"fi"}
+     END{print"fo fum"}' filename</PRE>
+        <P></P>
+        <LI>Another choice is to put the program into a file, like so: <PRE>	BEGIN{print"fee"}
+	$1=="foo"{print"fi"}
+	END{print"fo fum"}
+</PRE>Let's say that's in the file <I>giant.awk</I>. Now, run it using 
+        the "-f" flag to awk: 
+        <P><B>&gt;</B><SAMP>awk -f giant.awk filename</SAMP> 
+        <P></P>
+        <LI>A third choice is to create a file that calls awk all by itself. The 
+        following form will do the trick: <PRE>	#!/usr/bin/awk -f
+	BEGIN{print"fee"}
+	$1=="foo"{print"fi"}
+	END{print"fo fum"} 
+</PRE></LI></OL>If we call this file <I>giant2.awk</I>, we can run it by 
+      first giving it execute permissions, 
+      <P><B>&gt;</B><SAMP>chmod u+x giant2.awk</SAMP> 
+      <P>and then just call it like so: 
+      <P><B>&gt;</B><SAMP>./giant2.awk filename</SAMP> 
+      <P>awk has variables that can be either real numbers or strings. For 
+      example, the following code prints a running total of the fifth column: 
+      <P><B>&gt;</B><SAMP>awk '{print x+=$5,$0 }' filename</SAMP> 
+      <P>This can be used when looking at file sizes from an "ls -l". It is also 
+      useful for balancing one's checkbook, if the amount of the check is kept 
+      in one column. 
+      <P><A href="#menu">back to 
+      the top</A> 
+      <P>
+      <HR>
+      <A name=awkvars></A>
+      <H3>Awk variables</H3>awk variables are initialized to either zero or the 
+      empty string the first time they are used. Which one depends on how they 
+      are used, of course. 
+      <P>Variables are also useful for keeping intermediate values. This example 
+      also introduces the use of semicolons for separating statements: 
+      <P><B>&gt;</B><SAMP>awk '{d=($2-($1-4));s=($2+$1);print d/sqrt(s),d*d/s }' 
+      filename</SAMP> 
+      <P>Note that the final statement, a "print" in this case, does not need a 
+      semicolon. It doesn't hurt to put it in, though. 
+      <P>
+      <UL>
+        <LI>Integer variables can be used to refer to fields. If one field 
+        contains information about which other field is important, this script 
+        will print only the important field: 
+        <P><B>&gt;</B><SAMP>awk '{imp=$1; print $imp }' filename</SAMP> 
+        <P></P>
+        <LI>The special variable <VAR>NF</VAR> tells you how many fields are in 
+        this record. This script prints the first and last field from each 
+        record, regardless of how many fields there are: 
+        <P><B>&gt;</B><SAMP>awk '{print $1,$NF }' filename</SAMP> 
+        <P></P>
+        <LI>The special variable <VAR>NR</VAR> tells you which record this is. 
+        It is incremented each time a new record is read in. This gives a simple 
+        way of adding line numbers to a file: 
+        <P><B>&gt;</B><SAMP>awk '{print NR,$0 }' filename</SAMP> 
+        <P></P></LI></UL>Of course, there are a myriad of other ways to put line 
+      numbers on a file using the various UNIX utilities. This is left as an 
+      exercise for the reader. 
+      <P>
+      <UL>
+        <LI>The special variable <VAR>FS</VAR> (Field Separator) determines how 
+        awk will split up each record into fields. This variable can be set on 
+        the command line. For example, <I>/etc/passwd</I> has its fields 
+        separated by colons. 
+        <P><B>&gt;</B><SAMP>awk -F: '{print $1,$3 }' /etc/passwd</SAMP> </P>This 
+        variable can actually be set to any regular expression, in the manner of 
+        <I>egrep</I>(1). </LI></UL>
+      <P>The various fields are also variables, and you can assign things to 
+      them. If you wanted to delete the 10th field from each line, you could do 
+      it by printing fields 1 through 9, and then from 11 on using a for-loop 
+      (see below). But, this will do it very easily: 
+      <P><B>&gt;</B><SAMP>awk '{$10=""; print }' filename</SAMP> 
+      <P><A name=awkfwd></A>In many ways, awk is like C. The "for", "while", 
+      "do-while", and "if" constructs all exist. Statements can be grouped with 
+      curly braces. This script will print each field of each record on its own 
+      line. 
+      <P><B>&gt;</B><SAMP>awk '{for(i=1;i&lt;=NF;i++) print $i }' 
+      filename</SAMP> 
+      <P>If you want to produce format that is a little better formatted than 
+      the "print" statement gives you, you can use "printf" just like in C. Here 
+      is an example that treats the first field as a string, and then does some 
+      numeric stuff 
+      <P><B>&gt;</B><SAMP>awk '{printf("%s %03d %02d %.15g\n",$1,$2,$3,$3/$2); 
+      }' filename</SAMP> 
+      <P>Note that with printf, you need the explicit newline character. 
+      <P>We can use "printf" to print stuff without the newline, which is useful 
+      in a for loop. This script prints each record with each of its fields 
+      reversed. Ok, so it isn't very useful. 
+      <P><B>&gt;</B><SAMP>awk '{for(i=NF;i &gt; 0;i--) printf("%s",$i); 
+      printf("\n"); }' filename</SAMP> 
+      <P><A href="#menu">back to 
+      the top</A> 
+      <P>
+      <HR>
+      <A name=awkarr></A>
+      <H3>Awk Arrays</H3>awk has arrays, but they are only indexed by strings. 
+      This can be very useful, but it can also be annoying. For example, we can 
+      count the frequency of words in a document (ignoring the icky part about 
+      printing them out): 
+      <P><B>&gt;</B><SAMP>awk '{for(i=1;i &lt;=NF;i++) freq[$i]++ }' 
+      filename</SAMP> 
+      <P>The array will hold an integer value for each word that occurred in the 
+      file. Unfortunately, this treats "foo", "Foo", and "foo," as different 
+      words. Oh well. How do we print out these frequencies? awk has a special 
+      "for" construct that loops over the values in an array. This script is 
+      longer than most command lines, so it will be expressed as an executable 
+      script: <PRE>	#!/usr/bin/awk -f
+	{for(i=1;i &lt;=NF;i++) freq[$i]++ }
+        END{for(word in freq) print word, freq[word]  }
+</PRE>This loop-over-an-array seems to go in no particular order. Thus, 
+      the output from a program like this must often be piped through 
+      <I>sort</I>(1) in order to be useful. 
+      <P>Multi-dimensional arrays are implemented in an odd way. The given 
+      indices are concatenated together (with a special separator) to get one 
+      string, and it is used as the index. This program will print the word-pair 
+      frequencies: <PRE>	#!/usr/bin/awk -f
+	{for(i=1;i &lt; NF;i++) freq[$i,$(i+1)]++ }
+        END{for(words in freq) print words, freq[words]  }
+</PRE>Unfortunately, this will print out the separator, which is by 
+      default not a common character. You can change this by assigning something 
+      logical like a space to the variable SUBSEP using nawk or gawk (it's not 
+      allowed in plain awk). <PRE>	#!/usr/bin/awk -f
+	BEGIN{SUBSEP=""}
+	{for(i=1;i &lt; NF;i++) freq[$i,$(i+1)]++}
+        END{for(words in freq) print words, freq[words] }
+</PRE>Unfortunately (that word seems to occur a lot when talking about awk 
+      arrays), this doesn't let you refer to the indices individually. The 
+      secret to this it to use the "split" function, which breaks a string up 
+      into an array. <PRE> 
+	#!/usr/bin/awk -f
+	BEGIN{SUBSEP="" }
+	{for(i=1;i &lt; NF;i++) freq[$i,$(i+1)]++}
+        END{ for(words in freq)
+	       {
+	       split(words,word,SUBSEP); 
+	       print word[1], freq[words],word[2];
+	       } 
+	   }	
+</PRE>
+      <HR>
+
+      <P><A name=awkscr></A>When you're using an awk script in a file, you can 
+      break your program across multiple lines to make it easier to read. 
+      Comments are started the same way as in <I>sh</I> programming, with a # <PRE>	#!/usr/bin/awk -f
+	# this program prints the frequencies of word pairs
+	BEGIN{SUBSEP=""} # set the index separator 
+	                 # to a nice character
+	{for(i=1;i &lt; NF;i++) freq[$i,$(i+1)]++}
+        END{ for(words in freq)
+	       {
+	# just to show we can put a comment in here.
+	       split(words,word,SUBSEP); # or here
+	       print word[1], freq[words],word[2];
+	       } 
+	   }		
+</PRE>You can use awk to create text, as well as just process existing 
+      text. It is useful for quickly generating tables of function values, 
+      without the hassle of compiling a C program. For example, it can show that 
+      sin(x)/x approaches 1 as x approaches zero: 
+      <P><B>&gt;</B><SAMP>awk '{x=1.0/NR; print x,sin(x)/x;}'</SAMP> 
+      <P>will print a new value each time it reads a new line. So, you can hit 
+      return until you have all the values you need. Alternately, if you need a 
+      set number of values, you can do 
+      <P><B>&gt;</B><SAMP>awk 'BEGIN{for(i=1;i &lt;=30;i++){x=1.0/i;print 
+      x,sin(x)/x;}}' /dev/null</SAMP> 
+      <P>where 30 is the set number of values. 
+      <P><A name=awkcc></A>It seems twisted*, but awk can be used to generate C 
+      code that one doesn't want to type by hand. For example, this script will 
+      generate an explicit 3x3 matrix multiplication routine: 
+      <P><PRE>gawk 'BEGIN{
+        for(i=0;i&lt;3;i++)
+          for(j=0;j&lt;3;j++){
+            printf("d[%d][%d]=",i,j);
+            for(k=0;k&lt;3;k++){
+              printf("l[%d][%d]*r[%d][%d]%s",
+                     i,k,k,j,(k&lt;2)?"+":";\n");
+            }
+          }
+      }'</PRE>
+      <P>
+      <P><I>* ok, maybe it is twisted. </I>
+      <P><A href="#menu">back to 
+      the top</A> 
+      <HR>
+      <A name=punct></A>
+      <H2>Punctuation guide:</H2>
+      <DL compact>
+        <DT>{} 
+        <DD>used around the action, and to group statements in the action.
+        <P></P>
+        <DT>$ 
+        <DD>denotes a field. $1 is the first field, $0 is the whole record.
+        <P></P>
+        <DT>~ 
+        <DD>the "contains" operator. "foobar"~"foo" is true. Strings only.
+        <P></P>
+        <DT>!~ 
+        <DD>the "does not contain" operator. Strings only.
+        <P></P>
+        <DT>== 
+        <DD>the equality operator. Works for numbers or strings
+        <P></P>
+        <DT>&lt; &gt; &lt;= &gt;= != 
+        <DD>inequality operators. Work for numbers or strings.
+        <P></P>
+        <DT># 
+        <DD>the begin-comment character
+        <P></P>
+        <DT>, 
+        <DD>separates things in a "print" or "printf" statement.
+        <P></P>
+        <DT>; 
+        <DD>separates statements.
+        <P></P>
+        <DT>// 
+        <DD>used around a regular expression
+        <P></P>
+        <DT>&amp;&amp; 
+        <DD>Boolean and
+        <P></P>
+        <DT>|| 
+        <DD>Boolean or
+        <P></P>
+        <DT>! 
+        <DD>boolean not
+        <P></P>
+        <DT>() 
+        <DD>used for grouping Boolean expressions, passing arguments to 
+        functions, and around conditions for "for","while", etc.
+        <P></P></DD></DL>
+      <P><A href="#menu">back to 
+      the top</A> 
+      <HR>
+      <A name=bigexampl></A>
+      <H2>And now for a grand example:</H2><PRE># This awk program collects statistics on two 
+# "random variables" and the relationships 
+# between them. It looks only at fields 1 and 
+# 2 by default Define the variables F and G 
+# on the command line to force it to look at
+# different fields.  For example: 
+# awk -f stat_2o1.awk F=2 G=3 stuff.dat \
+# F=3 G=5 otherstuff.dat
+# or, from standard input: 
+# awk -f stat_2o1.awk F=1 G=3
+# It ignores blank lines, lines where either 
+# one of the requested fields is empty, and 
+# lines whose first field contains a number 
+# sign. It requires only one pass through the
+# data. This script works with vanilla awk 
+# under SunOS 4.1.3.
+BEGIN{
+  F=1;
+  G=2;
+}
+length($F) &gt; 0 &amp;&amp; \
+length($G) &gt; 0 &amp;&amp; \
+$1 !~/^#/ {
+  sx1+= $F; sx2 += $F*$F;
+  sy1+= $G; sy2 += $G*$G;
+  sxy1+= $F*$G;
+  if( N==0 ) xmax = xmin = $F;
+  if( xmin &gt; $F ) xmin=$F;
+  if( xmax &lt; $F ) xmax=$F;
+  if( N==0 ) ymax = ymin = $G;
+  if( ymin &gt; $G ) ymin=$G;
+  if( ymax &lt; $G ) ymax=$G;
+  N++;
+}
+ 
+END {
+  printf("%d # N\n"   ,N   );
+  if (N &lt;= 1) 
+    {
+    printf("What's the point?\n");
+    exit 1;
+    }
+  printf("%g # xmin\n",xmin);
+  printf("%g # xmax\n",xmax);
+  printf("%g # xmean\n",xmean=sx1/N);
+  xSigma = sx2 - 2 * xmean * sx1+ N*xmean*xmean;
+  printf("%g # xvar\n"         ,xvar =xSigma/  N  );
+  printf("%g # xvar unbiased\n",xvaru=xSigma/(N-1));
+  printf("%g # xstddev\n"         ,sqrt(xvar ));
+  printf("%g # xstddev unbiased\n",sqrt(xvaru));
+  
+  printf("%g # ymin\n",ymin);
+  printf("%g # ymax\n",ymax);
+  printf("%g # ymean\n",ymean=sy1/N);
+  ySigma = sy2 - 2 * ymean * sy1+ N*ymean*ymean;
+  printf("%g # yvar\n"         ,yvar =ySigma/  N  );
+  printf("%g # yvar unbiased\n",yvaru=ySigma/(N-1));
+  printf("%g # ystddev\n"         ,sqrt(yvar ));
+  printf("%g # ystddev unbiased\n",sqrt(yvaru));
+  if ( xSigma * ySigma &lt;= 0 )
+    r=0;
+  else 
+    r=(sxy1 - xmean*sy1- ymean * sx1+ N * xmean * ymean)
+      /sqrt(xSigma * ySigma);
+  printf("%g # correlation coefficient\n", r);
+  if( r &gt; 1 || r &lt; -1 )
+    printf("SERIOUS ERROR! CORRELATION COEFFICIENT");
+    printf(" OUTSIDE RANGE -1..1\n");
+
+  if( 1-r*r != 0 )
+    printf("%g # Student's T (use with N-2 degfreed)\n&amp;", \
+      t=r*sqrt((N-2)/(1-r*r)) );
+  else
+    printf("0 # Correlation is perfect,");
+    printf(" Student's T is plus infinity\n");
+  b = (sxy1 - ymean * sx1)/(sx2 - xmean * sx1);
+  a = ymean - b * xmean;
+  ss=sy2 - 2*a*sy1- 2*b*sxy1 + N*a*a + 2*a*b*sx1+ b*b*sx2 ;
+  ss/= N-2;
+  printf("%g # a = y-intercept\n", a);
+  printf("%g # b = slope\n"      , b); 
+  printf("%g # s^2 = unbiased estimator for sigsq\n",ss);
+  printf("%g + %g * x # equation ready for cut-and-paste\n",a,b);
+  ra = sqrt(ss * sx2 / (N * xSigma));
+  rb = sqrt(ss       / (    xSigma));
+  printf("%g # radius of confidence interval ");
+  printf("for a, multiply by t\n",ra);
+  printf("%g # radius of confidence interval ");
+  printf("for b, multiply by t\n",rb);
+}    
+
+</PRE><A href="#menu">back to 
+      the top</A> 
+      <P>This documentation was originally written by Andrew M. Ross. 
+      <HR>
+      <FONT size=-3>
+      <P>Copyright (c) <!-- YEAR -->HMC Computer Science Department. Permission 
+      is granted to copy, distribute and/or modify this document under the terms 
+      of the GNU Free Documentation License, Version 1.1 or any later version 
+      published by the Free Software Foundation; with the no Invariant Sections<!-- being LIST THEIR TITLES -->, with no Front-Cover Texts, and 
+      with no the Back-Cover Texts. A copy of the license is included in the 
+      section entitled ``<A href="http://www.gnu.org/copyleft/fdl.html">GNU Free 
+      Documentation License</A>.''<BR></FONT><BR>
+      <DIV align=center><B>HMC Computer Science Department</B><BR><A 
+      style="TEXT-DECORATION: none" 
+      href="http://www.hmc.edu/campus/campus-map/">Olin Science Center</A><BR><A 
+      style="TEXT-DECORATION: none" href="http://www.cs.hmc.edu/map.html">301 E. 
+      Twelfth Street</A> <A style="TEXT-DECORATION: none" 
+      href="http://www.cyberg8t.com/claremont/">Claremont</A>, <A 
+      style="TEXT-DECORATION: none" href="http://www.ca.gov/">CA</A> 91711-5980 
+      USA <BR>PH : (909) 621-8225 FX : (909) 621-8465 <BR>Info Email: <A 
+      style="TEXT-DECORATION: none" href="mailto:staffnow@cs.hmc.edu">CS 
+      Staff</A> or <A style="TEXT-DECORATION: none" 
+      href="mailto:admission@hmc.edu">Admission Office</A> 
+</DIV></TD></TR></TBODY></TABLE>
+<DIV align=center>
+<ADDRESS>Last Modified Tuesday, 29-May-2001 11:46:54 
+PDT</ADDRESS></DIV></BODY></HTML>
